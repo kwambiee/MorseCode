@@ -43,4 +43,20 @@ def decode_char(character)
   @current_morse_character.upcase
 end
 
+def decode_word(word) 
+  @entire_word='' 
+  @characters=word.split 
+  @characters.each do |character| 
+    @entire_word += decode_char(character) 
+  end
+  print "#{@entire_word}" 
+end 
+
+def decode_sentence(sentence) 
+  @entire_sentence=sentence.split(' ') 
+  @entire_sentence.each do |message| 
+    decode_word(message) 
+  end 
+end
+
 decode_sentence('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
